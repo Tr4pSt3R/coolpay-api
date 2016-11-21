@@ -1,3 +1,4 @@
+```
  () ~/Projects/challenges/coolpay
 ⤷  curl --include \
 >      --request POST \
@@ -8,6 +9,10 @@
 >         \"name\": \"Leonard\"
 >     }
 > }" \
+```
+
+
+```
 > 'https://coolpay.herokuapp.com/api/recipients'
 HTTP/1.1 401 Unauthorized
 Connection: keep-alive
@@ -20,3 +25,5 @@ X-Request-Id: 7eb7c532-2d2a-4e07-a993-0b8375d09787
 Via: 1.1 vegur
 
 Please provide a good token
+```
+I am stumped by this "Provide a good token" issue. 
