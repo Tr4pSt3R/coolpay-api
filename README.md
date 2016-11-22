@@ -1,3 +1,26 @@
+⤷  filewatcher 'Gemfile *.rb'  'rspec coolpay_api_spec.rb:43'
+Run options: include {:locations=>{"./coolpay_api_spec.rb"=>[43]}}
+"315dd84c-b69b-4533-a41f-ce27480f3834"
+F
+
+Failures:
+
+  1) CoolpayAPI Integration add recipients adds a recipient
+     Failure/Error: expect(add_recipients([alice, bob])).to be_truthy
+
+     RestClient::Unauthorized:
+       401 Unauthorized
+     # ./coolpay_api.rb:20:in `add_recipients'
+     # ./coolpay_api_spec.rb:48:in `block (3 levels) in <top (required)>'
+
+Finished in 0.21589 seconds (files took 0.25273 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./coolpay_api_spec.rb:44 # CoolpayAPI Integration add recipients adds a recipient
+
+-----
  () ~/Projects/challenges/coolpay
 ⤷  curl --include \
 >      --request POST \

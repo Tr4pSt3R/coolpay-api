@@ -14,7 +14,7 @@ def add_recipients(recipients)
   token = authenticate(USERNAME, 'EE7E4705DD4AC06A')['token']
   headers = {
     "content-type" => "application/json",
-    "authorization" => "Bearer 12345.#{token}.67890"
+    "authorization" => "Bearer #{token}"
   }
 
   p RestClient.post uri, values, headers
