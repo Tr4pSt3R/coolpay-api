@@ -47,8 +47,13 @@ RSpec.describe "CoolpayAPI Integration" do
   end
 
   describe 'send them money' do
-    it 'transfers money to recipients' do
-      expect(send_money(['alice', 'bob'])).to be_truthy
+    context 'successful payment' do
+      it 'transfers money to recipients' do
+        alice = double(name: 'alice', id: 'f008b3c2-0591-41e1-a6c7-3730345ac02a')
+        bob = double(name: 'bob', id: '97a5b0c5-ca5e-4134-9cbb-1992d58dd2e2')
+
+        expect(send_money([alice, bob])).to be_truthy
+      end
     end
   end
 end

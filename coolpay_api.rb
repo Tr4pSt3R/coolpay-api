@@ -38,4 +38,22 @@ def authenticate(username, apikey)
 end
 
 def send_money(recipients)
+  uri = 'https://coolpay.herokuapp.com/api/payments'
+
+  values = {
+    "payment": {
+      "amount": 200.0,
+      "currency": "USD",
+      "recipient_id": "#{recipients.first.id}"
+    }
+  }.to_json
+
+  token = authenticate(USERNAME, API_KEY)['token']
+
+  headers = {
+    "content-type" => "application/json",
+    "authorization" => "Bearer #{token}"
+  }
+
+  RestClient.post uri, values, headers
 end
