@@ -42,10 +42,13 @@ RSpec.describe "CoolpayAPI Integration" do
 
   describe 'add recipients' do
     it 'adds a recipient' do
-      alice = double(name: 'alice')
-      bob = double(name: 'bob')
+      expect(add_recipients(['alice', 'bob'])).to be_truthy
+    end
+  end
 
-      expect(add_recipients([alice, bob])).to be_truthy
+  describe 'send them money' do
+    it 'transfers money to recipients' do
+      expect(send_money(['alice', 'bob'])).to be_truthy
     end
   end
 end
