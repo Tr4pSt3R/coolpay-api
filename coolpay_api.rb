@@ -1,3 +1,4 @@
+require 'pry'
 require 'restclient'
 require 'json'
 
@@ -58,4 +59,24 @@ def send_money_to(recipient)
 
   response = RestClient.post uri, values, headers
   JSON.parse(response)
+end
+
+def verify_remittance_for(payment_id)
+  uri = 'https://coolpay.herokuapp.com/api/payments'
+
+  token = authenticate(USERNAME, API_KEY)['token']
+
+  headers = {
+    "content-type" => "application/json",
+    "authorization" => "Bearer #{token}"
+  }
+
+  payments = JSON.parse(RestClient.get uri, headers)['payments']
+
+  binding.pry
+  foo = []
+  payments.each do |payment|
+    foo << payment.select{ |_,value| value == payment_id }
+  end
+  return foo
 end

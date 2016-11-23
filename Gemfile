@@ -1,3 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'restclient'
+gem 'rest-client'
+gem 'rspec'
+gem 'pry'
+gem 'binding_of_caller'
