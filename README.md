@@ -1,30 +1,25 @@
-```
->>>>>>> 552b32533bb6b2dd305393317642c8c29203e02c
- () ~/Projects/challenges/coolpay
-⤷  curl --include \
->      --request POST \
->      --header "Content-Type: application/json" \
->      --header "Authorization: Bearer 12345.b782e6e0-11fe-4a53-bd4e-9aac3c20a26b.67890" \
->      --data-binary "{
->     \"recipient\": {
->         \"name\": \"Leonard\"
->     }
-> }" \
-```
+Coolpay is a new company that allows to easily send money to friends through
+their API.
 
+You work for Fakebook, a successful social network. You’ve been tasked to
+integrate Coolpay inside Fakebook. A/B tests show that users prefer to
+receive money than pokes!
 
-```
-> 'https://coolpay.herokuapp.com/api/recipients'
-HTTP/1.1 401 Unauthorized
-Connection: keep-alive
-Server: Cowboy
-Date: Mon, 21 Nov 2016 12:00:44 GMT
-Content-Length: 27
-Cache-Control: max-age=0, private, must-revalidate
-Strict-Transport-Security: max-age=31536000
-X-Request-Id: 7eb7c532-2d2a-4e07-a993-0b8375d09787
-Via: 1.1 vegur
+You can find Coolpay documentation here: http://docs.coolpayapi.apiary.io/
 
-Please provide a good token
-```
-I am stumped by this "Provide a good token" issue.
+You will write a small app that uses Coolplay API in Ruby. The app should
+be able do the following:
+
+ - Authenticate to Coolpay API
+ - Add recipients
+ - Send them money
+ - Check whether a payment was successful
+
+Username: jones
+API Key:
+
+Once you have completed the app please send it across to us (up to you
+how you do this - zip attachment, github/bitbucket etc).
+
+Please let me know if anything is unclear or you need more information
+regarding this.”
