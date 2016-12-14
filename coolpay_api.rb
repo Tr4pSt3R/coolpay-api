@@ -4,9 +4,10 @@ require 'json'
 
 USERNAME = 'jones'
 API_KEY = 'EE7E4705DD4AC06A'
+BASE_URI = 'https://coolpay.herokuapp.com/api'
 
 def add_recipient(recipient)
-  uri = 'https://coolpay.herokuapp.com/api/recipients'
+  uri = BASE_URI + '/recipients'
 
   values = {
     "recipient": {
@@ -14,18 +15,20 @@ def add_recipient(recipient)
     }
   }.to_json
 
-  token = authenticate(USERNAME, API_KEY)['token']
-
   headers = {
     "content-type" => "application/json",
     "authorization" => "Bearer #{token}"
   }
 
-  p RestClient.post uri, values, headers
+  RestClient.post uri, values, headers
+end
+
+def token
+  authenticate(USERNAME, API_KEY)['token']
 end
 
 def authenticate(username, apikey)
-  uri = 'https://coolpay.herokuapp.com/api/login'
+  uri = BASE_URI + '/login'
   values = {
     "username": USERNAME,
     "apikey": API_KEY
@@ -36,11 +39,11 @@ def authenticate(username, apikey)
   }
 
   response = RestClient.post(uri, values, headers)
-  p JSON.parse(response)
+  JSON.parse(response)
 end
 
 def send_money_to(recipient)
-  uri = 'https://coolpay.herokuapp.com/api/payments'
+  uri = BASE_URI + '/payments'
 
   values = {
     "payment": {
@@ -61,8 +64,8 @@ def send_money_to(recipient)
   JSON.parse(response)
 end
 
-def verify_remittance_for(payment_id)
-  uri = 'https://coolpay.herokuapp.com/api/payments'
+def verify_remittance_for(new_money_transfer)
+  uri = BASE_URI + '/payments'
 
   token = authenticate(USERNAME, API_KEY)['token']
 
@@ -72,11 +75,9 @@ def verify_remittance_for(payment_id)
   }
 
   payments = JSON.parse(RestClient.get uri, headers)['payments']
+  sleep 5 # waits for payment to be processed
+  payments = JSON.parse(RestClient.get uri, headers)['payments']
 
-  binding.pry
-  foo = []
-  payments.each do |payment|
-    foo << payment.select{ |_,value| value == payment_id }
-  end
-  return foo
+  latest_payment = payments.select{ |payment| payment['id'] == new_money_transfer['payment']['id'] }.first
+  latest_payment['status']
 end

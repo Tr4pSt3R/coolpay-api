@@ -44,10 +44,10 @@ RSpec.describe "CoolpayAPI Integration" do
       it "credits money to recipient's account" do
         david = double(amount: '1567', id: 'f008b3c2-0591-41e1-a6c7-3730345ac02a')
 
-        response = send_money_to david
-        verify_remittance_for response
+        new_money_transfer = send_money_to david
+        payment_status = verify_remittance_for new_money_transfer
 
-        expect(successful_payment).to be_true
+        expect(payment_status).to eq('paid')
       end
     end
   end
