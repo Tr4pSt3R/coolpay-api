@@ -1,0 +1,99 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://coolpay.herokuapp.com/api/login
+    body:
+      encoding: UTF-8
+      string: '{"username":"jones","apikey":"EE7E4705DD4AC06A"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin16.1.0 x86_64) ruby/2.3.3p222
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '48'
+      Host:
+      - coolpay.herokuapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 14 Dec 2016 12:00:40 GMT
+      Content-Length:
+      - '48'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Request-Id:
+      - ccd879a1-a32e-4c67-a612-dbba398e54e6
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"token":"52566fc6-68dc-4196-83cb-19f41fbb35c7"}'
+    http_version: 
+  recorded_at: Wed, 14 Dec 2016 12:00:41 GMT
+- request:
+    method: post
+    uri: https://coolpay.herokuapp.com/api/payments
+    body:
+      encoding: UTF-8
+      string: '{"payment":{"amount":"-29.5d","currency":"USD","recipient_id":"f008b3c2-0591-41e1-a6c7-3730345ac02a"}}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin16.1.0 x86_64) ruby/2.3.3p222
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 52566fc6-68dc-4196-83cb-19f41fbb35c7
+      Content-Length:
+      - '102'
+      Host:
+      - coolpay.herokuapp.com
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 14 Dec 2016 12:00:40 GMT
+      Content-Length:
+      - '36'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Request-Id:
+      - '0830f9c5-26d9-4663-bacd-34062e6b4bf7'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"errors":{"amount":["is invalid"]}}'
+    http_version: 
+  recorded_at: Wed, 14 Dec 2016 12:00:41 GMT
+recorded_with: VCR 3.0.3

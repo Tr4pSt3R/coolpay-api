@@ -1,0 +1,199 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://coolpay.herokuapp.com/api/login
+    body:
+      encoding: UTF-8
+      string: '{"username":"jones","apikey":"EE7E4705DD4AC06A"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin16.1.0 x86_64) ruby/2.3.3p222
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '48'
+      Host:
+      - coolpay.herokuapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 14 Dec 2016 11:56:49 GMT
+      Content-Length:
+      - '48'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Request-Id:
+      - c422826d-dab0-44ce-9390-175ea66a7882
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"token":"c430b4ea-8706-40de-86cc-7cdcd2350f37"}'
+    http_version: 
+  recorded_at: Wed, 14 Dec 2016 11:56:50 GMT
+- request:
+    method: post
+    uri: https://coolpay.herokuapp.com/api/recipients
+    body:
+      encoding: UTF-8
+      string: '{"recipient":{"name":"alice"}}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin16.1.0 x86_64) ruby/2.3.3p222
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer c430b4ea-8706-40de-86cc-7cdcd2350f37
+      Content-Length:
+      - '30'
+      Host:
+      - coolpay.herokuapp.com
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 14 Dec 2016 11:56:50 GMT
+      Content-Length:
+      - '74'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Request-Id:
+      - 6e555038-1d5e-4f44-b892-14c15d718e5a
+      Location:
+      - "/api/recipients/718391e9-f57a-4c81-bc02-c3a73576bd3d"
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"recipient":{"name":"alice","id":"718391e9-f57a-4c81-bc02-c3a73576bd3d"}}'
+    http_version: 
+  recorded_at: Wed, 14 Dec 2016 11:56:50 GMT
+- request:
+    method: post
+    uri: https://coolpay.herokuapp.com/api/login
+    body:
+      encoding: UTF-8
+      string: '{"username":"jones","apikey":"EE7E4705DD4AC06A"}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin16.1.0 x86_64) ruby/2.3.3p222
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '48'
+      Host:
+      - coolpay.herokuapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 14 Dec 2016 11:56:50 GMT
+      Content-Length:
+      - '48'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Request-Id:
+      - da82b896-63de-48aa-8d49-11cf9aea8d22
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"token":"fba7185a-a745-494c-ba7f-708c3a409747"}'
+    http_version: 
+  recorded_at: Wed, 14 Dec 2016 11:56:50 GMT
+- request:
+    method: post
+    uri: https://coolpay.herokuapp.com/api/recipients
+    body:
+      encoding: UTF-8
+      string: '{"recipient":{"name":"bob"}}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin16.1.0 x86_64) ruby/2.3.3p222
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer fba7185a-a745-494c-ba7f-708c3a409747
+      Content-Length:
+      - '28'
+      Host:
+      - coolpay.herokuapp.com
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 14 Dec 2016 11:56:50 GMT
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Request-Id:
+      - ae6c2d13-2b50-42b2-9ae5-4b948f98f392
+      Location:
+      - "/api/recipients/13af19e4-1349-452f-832a-e27c51ba3185"
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"recipient":{"name":"bob","id":"13af19e4-1349-452f-832a-e27c51ba3185"}}'
+    http_version: 
+  recorded_at: Wed, 14 Dec 2016 11:56:50 GMT
+recorded_with: VCR 3.0.3
