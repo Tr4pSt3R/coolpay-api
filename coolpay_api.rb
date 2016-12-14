@@ -23,10 +23,6 @@ def add_recipient(recipient)
   RestClient.post uri, values, headers
 end
 
-def token
-  authenticate(USERNAME, API_KEY)['token']
-end
-
 def authenticate(username, apikey)
   uri = BASE_URI + '/login'
   values = {
@@ -53,8 +49,6 @@ def send_money_to(recipient)
     }
   }.to_json
 
-  token = authenticate(USERNAME, API_KEY)['token']
-
   headers = {
     "content-type" => "application/json",
     "authorization" => "Bearer #{token}"
@@ -67,8 +61,6 @@ end
 def verify_remittance_for(new_money_transfer)
   uri = BASE_URI + '/payments'
 
-  token = authenticate(USERNAME, API_KEY)['token']
-
   headers = {
     "content-type" => "application/json",
     "authorization" => "Bearer #{token}"
@@ -80,4 +72,10 @@ def verify_remittance_for(new_money_transfer)
 
   latest_payment = payments.select{ |payment| payment['id'] == new_money_transfer['payment']['id'] }.first
   latest_payment['status']
+end
+
+private
+
+def token
+  authenticate(USERNAME, API_KEY)['token']
 end
